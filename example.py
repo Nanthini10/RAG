@@ -1,4 +1,4 @@
-from rag_pipeline import RAGPipeline
+from src.rag_pipeline import RAGPipeline
 
 pipeline = RAGPipeline(model_name="google/flan-t5-small")
 
