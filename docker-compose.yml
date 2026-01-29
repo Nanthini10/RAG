@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  rag-dev:
+    build: .
+    image: rag-pipeline:latest
+    container_name: rag-dev
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    volumes:
+      - ./:/workspace
+    stdin_open: true
+    tty: true
+    shm_size: '8gb'
