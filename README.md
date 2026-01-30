@@ -1,12 +1,42 @@
 RAG Pipeline for Document Summarization
 
-Files:
-- src/rag_pipeline.py: Core RAG pipeline with document loading, vectorstore, and summarization
-- src/example.py: Example usage demonstrating document summarization and querying
-- src/generate_pdfs.py: Generates sample PDF documents for testing
-- Dockerfile: Docker image configuration with PyTorch and GPU support
-- docker-compose.yml: Docker Compose setup for running container with GPU access
-- run_docker.sh: Shell script to build and run Docker container with GPU
-- requirements.txt: Python dependencies for the project
-- .env.example: Template for environment variables including HuggingFace token
-- .gitignore: Git ignore rules for .env, models, cache, and generated files
+## Directory Structure
+```
+RAG/
+├── src/
+│   ├── app.py              # Streamlit web interface
+│   ├── rag_pipeline.py     # Core RAG pipeline
+│   └── generate_pdfs.py    # PDF generation utility
+├── scripts/
+│   ├── example.py          # CLI example usage
+│   └── run_docker.sh       # Docker run script
+├── data/                   # Sample PDFs
+├── uploaded_docs/          # User-uploaded PDFs (auto-created)
+├── models/                 # Cached models (auto-created)
+├── chroma_db/              # Vector database (auto-created)
+├── Dockerfile
+├── docker-compose.yml
+├── requirements.txt
+├── .env
+├── .env.example
+├── .gitignore
+└── README.md
+```
+
+## Setup
+```bash
+sudo docker-compose build
+sudo docker-compose up -d
+sudo docker-compose exec rag-dev bash
+```
+
+## Run Streamlit App
+```bash
+streamlit run src/app.py --server.address=0.0.0.0
+```
+Access at: http://localhost:8501
+
+## Run CLI Example
+```bash
+python scripts/example.py
+```

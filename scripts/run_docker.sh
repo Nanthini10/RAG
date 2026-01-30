@@ -1,8 +1,8 @@
 #!/bin/bash
 
-docker build -t rag-pipeline:latest .
+sudo docker build -t rag-pipeline:latest .
 
-docker run -it --rm \
+sudo docker run -it --rm \
   --gpus all \
   --shm-size=8g \
   -v $(pwd):/workspace \
